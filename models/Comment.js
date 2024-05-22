@@ -1,27 +1,26 @@
-const client = require('../db/client')
+const sequelize = require('../config/client')
 const { DataTypes, Model } = require('sequelize')
 
 class Comment extends Model { }
 
-Comment.init({
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [6, 20]
-        }
-    }
+Comment.init(
 
-},
-{
-    sequelize: client,
-    modelName: 'comment'
-}
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        text: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        }
+    },
+    {
+        sequelize,
+        modelName: 'comment'
+    }
 )
 
 module.exports = Comment

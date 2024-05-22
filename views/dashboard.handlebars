@@ -1,0 +1,25 @@
+<script src="/js/home.js"></script>
+<script src="/js/dashboard.js"></script>
+<h1>Dashboard</h1>
+
+<div id="post-div">
+
+{{#each posts}}
+
+{{>singlepost this}}
+
+{{/each}}
+
+</div>
+
+<div class="container">
+
+ <button data-post-id="{{id}}" id="new-post-button" class="btn btn-primary new-post-button mb-2">New Post</button>
+
+
+<form id="new-post-form" action="/api/users/auth/post" style="display: none;" method="POST"class="new-post-form px-5">
+    <input class="text-input row mt-3 ms-1 form-control" name="title"   type="text" placeholder="Post Title">
+    <textarea id="text" name="text" placeholder="Type your post here..."></textarea>
+    <button class="btn btn-success row mt-3 ms-1 form-control" id="search-btn"  type="submit">Submit Post</button>
+</form>
+</div>

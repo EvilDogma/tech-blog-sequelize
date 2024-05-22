@@ -1,0 +1,22 @@
+<script src="/js/home.js"></script>
+<script src="/js/post.js"></script>
+
+<h1>Post</h1>
+
+
+<div id="post-div">
+    {{#each posts}}
+
+    {{>singlepost this}}
+    <div class="container">
+
+    {{#each this.comments}}
+
+    {{>comment this}}
+
+    {{/each}}
+    </div>
+
+    {{/each}}
+</div>
+

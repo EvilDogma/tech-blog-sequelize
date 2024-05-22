@@ -1,8 +1,8 @@
-const { Sequelize } = require('sequelize');
-
+require('dotenv').config()
+const { Sequelize } = require('sequelize')
 const is_prod = process.env.NODE_ENV
 
-const sequelize = is_prod ? new Sequelize(process.env.DATABASE_URL,
+const client = is_prod ? new Sequelize(process.env.DATABASE_URL,
     {
         ssl: {rejectUnauthourized: false}
     }) :
@@ -17,4 +17,4 @@ const sequelize = is_prod ? new Sequelize(process.env.DATABASE_URL,
         }
     )
 
-module.exports = sequelize
+module.exports = client

@@ -1,10 +1,16 @@
 const router = require('express').Router()
 
-// const users = require('./user_routes')
+const users = require('./user_routes')
 
-// const meals = require('./meal_routes')
+const views = require('./view_routes')
 
-// const views = require('./view_routes')
-// router.use('/', [users, meals, views])
+const posts = require('./post_routes')
+
+// const comments = require('./comment_routes')
+// router.use('/comments', comments)
+
+router.use('/api/users', users)
+router.use('/api/posts', posts)
+router.use('/', views)
 
 module.exports = router
